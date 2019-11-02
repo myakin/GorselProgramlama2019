@@ -15,6 +15,8 @@ public class UIManagerDers2 : MonoBehaviour
 
     private void Start() {
         doktor1Button.onClick.AddListener(DoktorBilgisiniYazdir);
+        doktor2Button.onClick.AddListener(DoktorBilgisiniYazdir2);
+        doktor3Button.onClick.AddListener(DoktorBilgisiniYazdir3);
     }
 
     private void DoktorBilgisiniYazdir() {
@@ -26,7 +28,17 @@ public class UIManagerDers2 : MonoBehaviour
     }
 
     private void DoktorBilgisiniYazdir2() {
+        uzmanlikAlaniText.text = "Endokrinoloji";
+        mezuniyetYiliText.text = "2001";
+        hastaneyeGirisTarihiText.text = "2005";
+        hastaSayisiText.text = "30";
+        emekliligineKalanYilText.text = "40";
     }
     private void DoktorBilgisiniYazdir3() {
+        uzmanlikAlaniText.text = "Dermatoloji";
+        mezuniyetYiliText.text = "2016";
+        hastaneyeGirisTarihiText.text = "2016";
+        hastaSayisiText.text = "60";
+        emekliligineKalanYilText.text = "50";
     }
 }
