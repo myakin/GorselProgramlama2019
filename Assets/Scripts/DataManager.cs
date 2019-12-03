@@ -9,7 +9,7 @@ public class DataManager : MonoBehaviour
     
 
     public void Save() {
-        UIManagerDers4 myUIManager = GetComponent<UIManagerDers4>();
+        UIManagerDers5 myUIManager = GetComponent<UIManagerDers5>();
         
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/kisiBilgileri.botednm");
@@ -22,12 +22,16 @@ public class DataManager : MonoBehaviour
     }
     public void Load() {
         if (File.Exists(Application.persistentDataPath + "/kisiBilgileri.botednm")) {
-            UIManagerDers4 myUIManager = GetComponent<UIManagerDers4>();
+            UIManagerDers5 myUIManager = GetComponent<UIManagerDers5>();
 
             BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/kisiBilgileri.botednm", FileMode.Open);
             
-            myUIManager.programVerileri = (List<DataUnit>)bf.Deserialize(file);
+            List<DataUnit> yuklenenVeri = (List<DataUnit>)bf.Deserialize(file);
+
+            // myUIManager.programVerileri = yuklenenVeri;
+            myUIManager.YuklenenVerileriEkranaIsle(yuklenenVeri);
+
             file.Close();
 
             Debug.Log("Kayitlar yuklendi");
